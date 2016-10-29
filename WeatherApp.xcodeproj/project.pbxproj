@@ -57,11 +57,19 @@
 				432C96501DC4DDD4001DB78C /* AppDelegate.swift */,
 				432C96521DC4DDD4001DB78C /* ViewController.swift */,
 				432C96541DC4DDD5001DB78C /* Main.storyboard */,
+				43377BAE1DC536A30087BFED /* Supporting files */,
+			);
+			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		43377BAE1DC536A30087BFED /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
 				432C96571DC4DDD5001DB78C /* Assets.xcassets */,
 				432C96591DC4DDD5001DB78C /* LaunchScreen.storyboard */,
 				432C965C1DC4DDD5001DB78C /* Info.plist */,
 			);
-			path = WeatherApp;
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +308,7 @@
 				432C96611DC4DDD5001DB78C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
