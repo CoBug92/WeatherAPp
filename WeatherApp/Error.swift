@@ -10,3 +10,4 @@ import Foundation
 
 public let BOGNetworkingErrorDomain = "com.bogdan.WeatherApp.NetworkingError"
 public let MissingHTTPResponseError = 100
+public let UnexpectedResponseError = 200

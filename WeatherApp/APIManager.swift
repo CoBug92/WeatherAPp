@@ -23,7 +23,7 @@ protocol APIManager {
     //создаем сессии на основе sessionConfiguration
     var session: URLSession { get }
     
-    //2 метода для получения данных
+    //2 метода для получения данных:
     //функция возвращающая URLSessionDataTask
     func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask
     func fetch<T>(request: URLRequest, pars: ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
@@ -32,7 +32,7 @@ protocol APIManager {
 }
 
 extension APIManager {
-    func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask {
+    func JSONTaskWith(request: URLRequest, completionHandler: @escaping JSONCompletionHandler) -> JSONTask {
         let dataTask = session.dataTask(with: request) { (data, response, error) in
             //если у нас не HTTP
             guard let HTTPResponse = response as? HTTPURLResponse else {
@@ -44,6 +44,58 @@ extension APIManager {
                 completionHandler(nil, nil, error)
                 return
             }
+            if data == nil {
+                if let error = error {
+                    completionHandler(nil, HTTPResponse, error)
+                }
+            } else {
+                switch HTTPResponse.statusCode {
+                case 200:
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
+                        completionHandler(json, HTTPResponse, nil)
+                    }
+                    catch let error as NSError {
+                        completionHandler(nil, HTTPResponse, error)
+                    }
+                default: print("We have got response status \(HTTPResponse.statusCode)")
+                }
+            }
         }
+        return dataTask
+    }
+    
+    func fetch<T>(request: URLRequest, pars: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
+        let dataTask = JSONTaskWith(request: request) { (json, response, error) in
+            guard let json = json else {
+                if let error = error {
+                    completionHandler(APIResult<T>.Failure(error))
+                }
+                return
+            }
+            
+            if let value = pars(json) {
+                completionHandler(APIResult<T>.Success(value))
+            } else {
+                let error = NSError(domain: BOGNetworkingErrorDomain, code: 200, userInfo: nil)
+                    completionHandler(APIResult<T>.Failure(error))
+                
+            }
+            
+        }
+        dataTask.resume()
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
