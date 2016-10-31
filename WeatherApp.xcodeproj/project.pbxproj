@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430E444A1DC745F1008C0BBD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430E44491DC745F1008C0BBD /* APIManager.swift */; };
 		432C96511DC4DDD4001DB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C96501DC4DDD4001DB78C /* AppDelegate.swift */; };
 		432C96531DC4DDD4001DB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C96521DC4DDD4001DB78C /* ViewController.swift */; };
 		432C96561DC4DDD5001DB78C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C96541DC4DDD5001DB78C /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		430E44491DC745F1008C0BBD /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		432C964D1DC4DDD4001DB78C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432C96501DC4DDD4001DB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432C96521DC4DDD4001DB78C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				432C96501DC4DDD4001DB78C /* AppDelegate.swift */,
 				432C96521DC4DDD4001DB78C /* ViewController.swift */,
+				430E44491DC745F1008C0BBD /* APIManager.swift */,
 				43377BAF1DC54F380087BFED /* CurrentWeather.swift */,
 				43377BB11DC54FE50087BFED /* WeatherIconManager.swift */,
 				432C96541DC4DDD5001DB78C /* Main.storyboard */,
@@ -153,6 +156,7 @@
 			files = (
 				43377BB21DC54FE50087BFED /* WeatherIconManager.swift in Sources */,
 				432C96531DC4DDD4001DB78C /* ViewController.swift in Sources */,
+				430E444A1DC745F1008C0BBD /* APIManager.swift in Sources */,
 				43377BB01DC54F380087BFED /* CurrentWeather.swift in Sources */,
 				432C96511DC4DDD4001DB78C /* AppDelegate.swift in Sources */,
 			);
