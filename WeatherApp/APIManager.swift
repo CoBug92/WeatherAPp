@@ -30,3 +30,20 @@ protocol APIManager {
     
     init(sessionConfiguration: URLSessionConfiguration)
 }
+
+extension APIManager {
+    func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask {
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            //если у нас не HTTP
+            guard let HTTPResponse = response as? HTTPURLResponse else {
+                
+                let userInfo = [
+                    NSLocalizedDescriptionKey: NSLocalizedString("Missing HTTP Response", comment: "")
+                ]
+                let error = NSError(domain: BOGNetworkingErrorDomain, code: 100 , userInfo: userInfo)
+                completionHandler(nil, nil, error)
+                return
+            }
+        }
+    }
+}
