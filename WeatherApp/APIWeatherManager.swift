@@ -13,23 +13,26 @@ struct Coordinates {
     let longitude: Double
 }
 
-enum ForecastType : FinalURLPoint {
+enum ForecastType: FinalURLPoint {
     case Current(apiKey: String, coordinates: Coordinates)
     
     var baseURL: URL {
         return URL(string: "https://api.darksky.net")!
     }
+    
     var path: String {
         switch self {
-        case .Current(let apiKey, let coordinates) :
+        case .Current(let apiKey, let coordinates):
             return "/forecast/\(apiKey)/\(coordinates.latitude),\(coordinates.longitude)"
         }
     }
+    
     var request: URLRequest {
         let url = URL(string: path, relativeTo: baseURL)
         return URLRequest(url: url!)
     }
 }
+
 
 final class APIWeatherManager: APIManager {
     

@@ -13,7 +13,7 @@ typealias JSONCompletionHandler = ([String: AnyObject]?,  HTTPURLResponse?, Erro
 
 protocol FinalURLPoint {
     var baseURL: URL { get }
-    var path: URL { get }
+    var path: String { get }
     var request: URLRequest { get }
 }
 
@@ -31,8 +31,8 @@ protocol APIManager {
     
     //2 метода для получения данных:
     //функция возвращающая URLSessionDataTask
-    func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask
-    func fetch<T>(request: URLRequest, pars: @escaping ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
+    func JSONTaskWith(request: URLRequest, completionHandler: @escaping JSONCompletionHandler) -> JSONTask
+    func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void)
 }
 
 extension APIManager {
