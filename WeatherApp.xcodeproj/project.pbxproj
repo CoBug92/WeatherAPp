@@ -15,6 +15,7 @@
 		432C965B1DC4DDD5001DB78C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C96591DC4DDD5001DB78C /* LaunchScreen.storyboard */; };
 		43377BB01DC54F380087BFED /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43377BAF1DC54F380087BFED /* CurrentWeather.swift */; };
 		43377BB21DC54FE50087BFED /* WeatherIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43377BB11DC54FE50087BFED /* WeatherIconManager.swift */; };
+		43D33ECD1DC8E27500F1053F /* APIWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D33ECC1DC8E27500F1053F /* APIWeatherManager.swift */; };
 		43D8F6051DC75D16008C7894 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D8F6041DC75D16008C7894 /* Error.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		432C965C1DC4DDD5001DB78C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43377BAF1DC54F380087BFED /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		43377BB11DC54FE50087BFED /* WeatherIconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherIconManager.swift; sourceTree = "<group>"; };
+		43D33ECC1DC8E27500F1053F /* APIWeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIWeatherManager.swift; sourceTree = "<group>"; };
 		43D8F6041DC75D16008C7894 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				432C96501DC4DDD4001DB78C /* AppDelegate.swift */,
 				432C96521DC4DDD4001DB78C /* ViewController.swift */,
 				430E44491DC745F1008C0BBD /* APIManager.swift */,
+				43D33ECC1DC8E27500F1053F /* APIWeatherManager.swift */,
 				43D8F6041DC75D16008C7894 /* Error.swift */,
 				43D8F6061DC75D24008C7894 /* WeatherModel */,
 				432C96541DC4DDD5001DB78C /* Main.storyboard */,
@@ -169,6 +172,7 @@
 				432C96531DC4DDD4001DB78C /* ViewController.swift in Sources */,
 				430E444A1DC745F1008C0BBD /* APIManager.swift in Sources */,
 				43377BB01DC54F380087BFED /* CurrentWeather.swift in Sources */,
+				43D33ECD1DC8E27500F1053F /* APIWeatherManager.swift in Sources */,
 				43D8F6051DC75D16008C7894 /* Error.swift in Sources */,
 				432C96511DC4DDD4001DB78C /* AppDelegate.swift in Sources */,
 			);

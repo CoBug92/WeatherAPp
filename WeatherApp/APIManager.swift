@@ -9,7 +9,13 @@
 import Foundation
 
 typealias JSONTask = URLSessionDataTask
-typealias JSONCompletionHandler = ([String: AnyObject]?, HTTPURLResponse?, Error?) -> Void
+typealias JSONCompletionHandler = ([String: AnyObject]?,  HTTPURLResponse?, Error?) -> Void
+
+protocol FinalURLPoint {
+    var baseURL: URL { get }
+    var path: URL { get }
+    var request: URLRequest { get }
+}
 
 enum APIResult<T>{
     case Success(T)
@@ -26,9 +32,7 @@ protocol APIManager {
     //2 метода для получения данных:
     //функция возвращающая URLSessionDataTask
     func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask
-    func fetch<T>(request: URLRequest, pars: ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
-    
-    init(sessionConfiguration: URLSessionConfiguration)
+    func fetch<T>(request: URLRequest, pars: @escaping ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
 }
 
 extension APIManager {
