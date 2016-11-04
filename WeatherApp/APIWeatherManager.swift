@@ -54,7 +54,7 @@ final class APIWeatherManager: APIManager {
     func fetchCurrentWeatherWith(coordinates: Coordinates, competionHandler: @escaping (APIResult<CurrentWeather>) -> Void) {
         let request = ForecastType.Current(apiKey: self.apiKey, coordinates: coordinates).request
         
-        fetch(request: request, pars: {(json) -> CurrentWeather? in
+        fetch(request: request, parse: {(json) -> CurrentWeather? in
             if let dictionary = json["currently"] as? [String: AnyObject] {
                 return CurrentWeather(JSON: dictionary)
             } else {

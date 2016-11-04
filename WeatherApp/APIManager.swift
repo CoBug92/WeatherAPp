@@ -73,21 +73,23 @@ extension APIManager {
         return dataTask
     }
     
-    func fetch<T>(request: URLRequest, pars: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
+    func fetch<T>(request: URLRequest, parse pars: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
         let dataTask = JSONTaskWith(request: request) { (json, response, error) in
-            guard let json = json else {
-                if let error = error {
-                    completionHandler(APIResult<T>.Failure(error))
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    if let error = error {
+                        completionHandler(APIResult<T>.Failure(error))
+                    }
+                    return
                 }
-                return
-            }
-            
-            if let value = pars(json) {
-                completionHandler(APIResult<T>.Success(value))
-            } else {
-                let error = NSError(domain: BOGNetworkingErrorDomain, code: 200, userInfo: nil)
-                    completionHandler(APIResult<T>.Failure(error))
                 
+                if let value = pars(json) {
+                    completionHandler(APIResult<T>.Success(value))
+                } else {
+                    let error = NSError(domain: BOGNetworkingErrorDomain, code: 200, userInfo: nil)
+                    completionHandler(APIResult<T>.Failure(error))
+                    
+                }
             }
             
         }
