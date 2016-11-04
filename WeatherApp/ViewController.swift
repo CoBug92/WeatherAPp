@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let icon = WeatherIconManager.Rain.image
-        let currentWeather = CurrentWeather(temperature: 10, appearentTemperature: 5, humidity: 20, pressure: 750, icon: icon)
+        let currentWeather = CurrentWeather(temperature: 10, apparentTemperature: 5, humidity: 20, pressure: 750, icon: icon)
         updateUIWith(currentWeather: currentWeather)
         
         //Unsafe code:
