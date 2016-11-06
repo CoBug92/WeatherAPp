@@ -65,12 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				432C96501DC4DDD4001DB78C /* AppDelegate.swift */,
-				432C96521DC4DDD4001DB78C /* ViewController.swift */,
-				430E44491DC745F1008C0BBD /* APIManager.swift */,
-				43D33ECC1DC8E27500F1053F /* APIWeatherManager.swift */,
-				43D8F6041DC75D16008C7894 /* Error.swift */,
-				43D8F6061DC75D24008C7894 /* WeatherModel */,
 				432C96541DC4DDD5001DB78C /* Main.storyboard */,
+				432C96521DC4DDD4001DB78C /* ViewController.swift */,
+				438C727E1DCFACF800FA8A4E /* API */,
+				43D8F6061DC75D24008C7894 /* WeatherModel */,
 				43377BAE1DC536A30087BFED /* Supporting files */,
 			);
 			path = WeatherApp;
@@ -84,6 +82,16 @@
 				432C965C1DC4DDD5001DB78C /* Info.plist */,
 			);
 			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		438C727E1DCFACF800FA8A4E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				430E44491DC745F1008C0BBD /* APIManager.swift */,
+				43D33ECC1DC8E27500F1053F /* APIWeatherManager.swift */,
+				43D8F6041DC75D16008C7894 /* Error.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		43D8F6061DC75D24008C7894 /* WeatherModel */ = {

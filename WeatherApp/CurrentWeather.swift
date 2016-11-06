@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIKit
+import UIKit    //испортируем для UIImage
 
 struct CurrentWeather {
     let temperature: Double
@@ -17,8 +17,10 @@ struct CurrentWeather {
     let icon: UIImage
 }
 
+//подписываемся под протокол JSONDecodable
 extension CurrentWeather: JSONDecodable {
     init?(JSON: [String: AnyObject]) {
+        //получаем JSON  и пытаемся по ключам найти нужные данные и кастим ее в дабл
         guard let temperature = JSON["temperature"] as? Double,
             let apparentTemperature = JSON["apparentTemperature"] as? Double,
             let humidity = JSON["humidity"] as? Double,
@@ -37,6 +39,7 @@ extension CurrentWeather: JSONDecodable {
     }
 }
 
+//Екстеншен для красивого вывода в лейблах
 extension CurrentWeather {
     var pressureString: String {
         return "\(Int(pressure * 0.750062)) mm"
@@ -53,5 +56,5 @@ extension CurrentWeather {
     var appearentTemperatureString: String {
         return "Feels like: \(Int(5 / 9 * (apparentTemperature - 32)))˚C"
     }
-
+    
 }
