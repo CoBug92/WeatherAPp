@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pressureLabel: UILabel!
@@ -21,10 +22,25 @@ class ViewController: UIViewController {
     //св-во которое хранит ключ
     lazy var weatherManager = APIWeatherManager(apiKey: "d7195ca6bf988f63b58b61b868560120")
     let coordinates = Coordinates(latitude: 55.679768, longitude: 37.545419)
+    let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //реализуем функции locationManager
+        locationManager.delegate = self
+        //настройка позволяющая нам понять с какой точностью определять наше положение
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //позволяет запрашивать разрешение на определнение положения при запуске
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
         getCurrentWeatherData()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations.last! as CLLocation
     }
     
     
