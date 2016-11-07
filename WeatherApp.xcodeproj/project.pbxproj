@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430B52EE1DD0DBE500E25A77 /* ParticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430B52ED1DD0DBE500E25A77 /* ParticlesView.swift */; };
+		430B52F01DD0DCBC00E25A77 /* ParticleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 430B52EF1DD0DCBC00E25A77 /* ParticleScene.sks */; };
 		430E444A1DC745F1008C0BBD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430E44491DC745F1008C0BBD /* APIManager.swift */; };
 		432C96511DC4DDD4001DB78C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C96501DC4DDD4001DB78C /* AppDelegate.swift */; };
 		432C96531DC4DDD4001DB78C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C96521DC4DDD4001DB78C /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		430B52ED1DD0DBE500E25A77 /* ParticlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticlesView.swift; sourceTree = "<group>"; };
+		430B52EF1DD0DCBC00E25A77 /* ParticleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ParticleScene.sks; sourceTree = "<group>"; };
 		430E44491DC745F1008C0BBD /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		432C964D1DC4DDD4001DB78C /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432C96501DC4DDD4001DB78C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		430B52F11DD0DCE400E25A77 /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				430B52EF1DD0DCBC00E25A77 /* ParticleScene.sks */,
+				430B52ED1DD0DBE500E25A77 /* ParticlesView.swift */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 		432C96441DC4DDD2001DB78C = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +80,7 @@
 				432C96501DC4DDD4001DB78C /* AppDelegate.swift */,
 				432C96541DC4DDD5001DB78C /* Main.storyboard */,
 				432C96521DC4DDD4001DB78C /* ViewController.swift */,
+				430B52F11DD0DCE400E25A77 /* Particles */,
 				438C727E1DCFACF800FA8A4E /* API */,
 				43D8F6061DC75D24008C7894 /* WeatherModel */,
 				43377BAE1DC536A30087BFED /* Supporting files */,
@@ -165,6 +179,7 @@
 			files = (
 				432C965B1DC4DDD5001DB78C /* LaunchScreen.storyboard in Resources */,
 				432C96581DC4DDD5001DB78C /* Assets.xcassets in Resources */,
+				430B52F01DD0DCBC00E25A77 /* ParticleScene.sks in Resources */,
 				432C96561DC4DDD5001DB78C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430B52EE1DD0DBE500E25A77 /* ParticlesView.swift in Sources */,
 				43377BB21DC54FE50087BFED /* WeatherIconManager.swift in Sources */,
 				432C96531DC4DDD4001DB78C /* ViewController.swift in Sources */,
 				430E444A1DC745F1008C0BBD /* APIManager.swift in Sources */,
