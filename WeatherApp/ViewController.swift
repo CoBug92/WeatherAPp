@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var appearentTemperatureLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //св-во которое хранит ключ
     lazy var weatherManager = APIWeatherManager(apiKey: "d7195ca6bf988f63b58b61b868560120")
@@ -23,10 +24,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurrentWeatherData()
+    }
+    
+    
+    func getCurrentWeatherData() {
         //Получаем реальные данные с сайта. Работает в фоновом режиме
         weatherManager.fetchCurrentWeatherWith(coordinates: coordinates, competionHandler: { (result) in
+            self.toggleActivityIndicator(on: false)
             switch result {
-                //передаем экземпляр погоды которую мы получили
+            //передаем экземпляр погоды которую мы получили
             case .Success(let currentWeather):
                 self.updateUIWith(currentWeather: currentWeather)
             case .Failure(let error as NSError):
@@ -37,6 +44,7 @@ class ViewController: UIViewController {
             default: break
             }
         })
+        
     }
     
     //метод для загрузки новых данных
@@ -49,11 +57,21 @@ class ViewController: UIViewController {
         self.appearentTemperatureLabel.text = currentWeather.appearentTemperatureString
     }
     
+    //функция отвечающая за определение включенности индикатора
+    func toggleActivityIndicator(on: Bool) {
+        refreshButton.isHidden = on
+        if on {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
+    }
     
     @IBAction func refreshButtonTapped(_ sender: UIButton) {
-        
-        
+        toggleActivityIndicator(on: true)
+        getCurrentWeatherData()
     }
+    
     
 }
 
