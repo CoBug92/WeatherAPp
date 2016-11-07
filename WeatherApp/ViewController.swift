@@ -41,6 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last! as CLLocation
+        print("My coordinates are \(userLocation.coordinate.latitude) and \(userLocation.coordinate.longitude)")
     }
     
     

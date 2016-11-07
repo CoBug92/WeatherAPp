@@ -24,7 +24,7 @@ class ParticlesView: SKView {
         if let particles = SKEmitterNode(fileNamed: "ParticlesScene.sks"){
             particles.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height)
             //в каких пределах должны создаваться наши частицы
-            particles.position = CGVector(dx: self.bounds.size.width, dy: 0)
+            particles.particlePositionRange = CGVector(dx: self.bounds.size.width, dy: 0)
             //добавляем particles на сцену
             scene.addChild(particles)
         }
