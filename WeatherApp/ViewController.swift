@@ -21,13 +21,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //св-во которое хранит ключ
     lazy var weatherManager = APIWeatherManager(apiKey: "d7195ca6bf988f63b58b61b868560120")
-    let coordinates = Coordinates(latitude: 55.679768, longitude: 37.545419)
+    var coordinates = Coordinates(latitude: -75.656771, longitude: 56.222760)
     let locationManager = CLLocationManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //реализуем функции locationManager
         locationManager.delegate = self
         //настройка позволяющая нам понять с какой точностью определять наше положение
@@ -37,12 +35,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         getCurrentWeatherData()
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last! as CLLocation
-        print("My coordinates are \(userLocation.coordinate.latitude) and \(userLocation.coordinate.longitude)")
+        coordinates = Coordinates(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude , longitude: coordinates.longitude), completionHandler: { (placemarks , error) -> Void in
+            //если ошибки = 0 то выполням код дальше
+            guard error == nil else { return }
+            //записываем наш опциональный массив в другой массив
+            guard let placemarks = placemarks else { return }
+            let placemark = placemarks.last! as CLPlacemark
+            let userLocality = placemark.locality!
+            let userCountry = placemark.country!
+            self.locationLabel.text = "\(userLocality), \(userCountry)"
+        })
     }
+
+    
     
     
     func getCurrentWeatherData() {
