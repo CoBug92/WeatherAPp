@@ -21,9 +21,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     //св-во которое хранит ключ
     lazy var weatherManager = APIWeatherManager(apiKey: "d7195ca6bf988f63b58b61b868560120")
-    var coordinates = Coordinates(latitude: -75.656771, longitude: 56.222760)
     let locationManager = CLLocationManager()
-    
+    var coordinates = Coordinates(latitude: -75.656771, longitude: 56.222760)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //реализуем функции locationManager
@@ -33,15 +33,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //позволяет запрашивать разрешение на определнение положения при запуске
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        
         getCurrentWeatherData()
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last! as CLLocation
+        
         coordinates = Coordinates(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         
+        //Определяем город и страну для locationLabel
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(CLLocation(latitude: coordinates.latitude , longitude: coordinates.longitude), completionHandler: { (placemarks , error) -> Void in
             //если ошибки = 0 то выполням код дальше
@@ -53,6 +53,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let userCountry = placemark.country!
             self.locationLabel.text = "\(userLocality), \(userCountry)"
         })
+        
     }
 
     
